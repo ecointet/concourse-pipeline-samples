@@ -11,8 +11,8 @@ resources:
   type: git
   source:
     branch: master
-    uri: https://github.com/pivotalservices/concourse-pipeline-samples.git
-- name: PWS
+    uri: https://github.com/ecointet/concourse-pipeline-samples.git
+- name: PIVOTAL CLOUD FOUNDRY
   type: cf
   source:
     api: {{pws-api}}
@@ -53,7 +53,7 @@ jobs:
     file: concourse-pipeline-samples/blue-green-app-deployment/ci/tasks/app-manifest-prep.yml
     params:
       PWS_APP_SUFFIX: {{pws-app-suffix}}
-  - put: PWS
+  - put: PIVOTAL CLOUD FOUNDRY
     params:
       manifest: app-manifest-output/manifest.yml
       path: concourse-pipeline-samples/blue-green-app-deployment/bgd-app
